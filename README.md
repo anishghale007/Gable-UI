@@ -1,6 +1,6 @@
 # gable_ui
 
-A UI clone of Gable (HTML template).
+A UI clone of Gable (Job Portal HTML template).
 
 NOTE: Landscape mode is not avaialble. Only POTRAIT mode is allowed. 
 
