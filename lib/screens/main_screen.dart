@@ -40,7 +40,7 @@ class _MainScreenState extends State<MainScreen> {
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.56,
+            height: 500,
             decoration: BoxDecoration(
                 color: Colors.black,
                 image: DecorationImage(
@@ -646,7 +646,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           Container(
             width: MediaQuery.of(context).size.width,
-            height: 3450,
+            height: 3410,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
