@@ -1,16 +1,29 @@
 # gable_ui
 
-A new Flutter project.
+A UI clone of Gable (HTML template).
 
-## Getting Started
+NOTE: Landscape mode is not avaialble. Only POTRAIT mode is allowed. 
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+<img src="https://user-images.githubusercontent.com/72159017/174299301-a8317521-8b32-4fd6-840d-df4cf6cb5a6d.jpg" width="400" height="800">
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+<img src="https://user-images.githubusercontent.com/72159017/174299432-d85c0f90-b421-48a3-b078-1319d88e3a47.jpg" width="400" height="800">
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<img src="https://user-images.githubusercontent.com/72159017/174299512-4025c5b9-5a01-459b-8b1b-5c1e0b2928af.jpg" width="400" height="800">
+
+<img src="https://user-images.githubusercontent.com/72159017/174299630-8e87693e-a48d-4b15-b56b-e331b9e6fcd8.jpg" width="400" height="800">
+
+<img src="https://user-images.githubusercontent.com/72159017/174299727-6c3f56a4-38bb-4319-8f9f-c890c6a80e65.jpg" width="400" height="800">
+
+<img src="https://user-images.githubusercontent.com/72159017/174299801-3b63a82a-7c7d-4aca-8f68-bdd7e188082c.jpg" width="400" height="800">
+
+<img src="https://user-images.githubusercontent.com/72159017/174299886-baef5f34-c370-4dc2-bf8d-14955446bba2.jpg" width="400" height="800">
+
+<img src="https://user-images.githubusercontent.com/72159017/174299952-83698cf6-9b83-4ae1-a632-198713f6e212.jpg" width="400" height="800">
+
+
+
+
+
+
