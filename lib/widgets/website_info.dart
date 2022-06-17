@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-
 class WebsiteInfo extends StatelessWidget {
-
   final String info;
 
   WebsiteInfo({required this.info});
@@ -15,7 +13,10 @@ class WebsiteInfo extends StatelessWidget {
         children: [
           Row(
             children: [
-              Text('>   $info', style: TextStyle(color: Colors.white, fontSize: 15),)
+              Text(
+                '>   $info',
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              )
             ],
           ),
         ],

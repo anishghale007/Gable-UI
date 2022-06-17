@@ -55,7 +55,10 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                     child: Column(
                       children: [
                         Container(
-                          child: Image.asset(item, fit: BoxFit.cover,),
+                          child: Image.asset(
+                            item,
+                            fit: BoxFit.cover,
+                          ),
                           height: height * 0.38,
                         ),
                         SizedBox(height: 20),
@@ -224,7 +227,8 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                         height: 28,
                                         width: 28,
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(50),
+                                          borderRadius:
+                                              BorderRadius.circular(50),
                                           border: Border.all(
                                             color: Colors.black,
                                             width: 0.1,

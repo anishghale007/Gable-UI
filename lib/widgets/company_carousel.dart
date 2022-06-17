@@ -198,7 +198,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
                 });
               }),
         ),
-        SizedBox(height: 20 ),
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: imgList.asMap().entries.map((entry) {

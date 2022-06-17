@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 
-
-
 const mainTextColor = Color(0xFF4BCC5A);
 
 class VacancyContainer extends StatelessWidget {
-
   final String image;
   final String jobTitle;
   final String website;
@@ -22,8 +19,7 @@ class VacancyContainer extends StatelessWidget {
     required this.location,
     required this.action,
     required this.jobType,
-});
-
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +28,8 @@ class VacancyContainer extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 200,
-        decoration: BoxDecoration(
-            border: Border.all(color: Colors.grey, width: 0.5)),
+        decoration:
+            BoxDecoration(border: Border.all(color: Colors.grey, width: 0.5)),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,8 +38,7 @@ class VacancyContainer extends StatelessWidget {
                 Container(
                   height: 60,
                   width: 60,
-                  margin: EdgeInsets.symmetric(
-                      vertical: 60, horizontal: 10),
+                  margin: EdgeInsets.symmetric(vertical: 60, horizontal: 10),
                   child: Image.asset('$image'),
                 ),
               ],
@@ -58,8 +53,7 @@ class VacancyContainer extends StatelessWidget {
                 ),
                 Text(
                   '$website',
-                  style:
-                  TextStyle(color: mainTextColor, fontSize: 18),
+                  style: TextStyle(color: mainTextColor, fontSize: 18),
                 ),
                 RichText(
                   text: TextSpan(
@@ -70,8 +64,7 @@ class VacancyContainer extends StatelessWidget {
                       ),
                       TextSpan(
                           text: '$salary',
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: 15)),
+                          style: TextStyle(color: Colors.grey, fontSize: 15)),
                     ],
                   ),
                 ),
@@ -83,9 +76,9 @@ class VacancyContainer extends StatelessWidget {
                             color: mainTextColor, size: 18),
                       ),
                       TextSpan(
-                          text: '$location',
-                          style: TextStyle(
-                              color: Colors.grey, fontSize: 15),),
+                        text: '$location',
+                        style: TextStyle(color: Colors.grey, fontSize: 15),
+                      ),
                     ],
                   ),
                 ),
@@ -99,8 +92,8 @@ class VacancyContainer extends StatelessWidget {
                   Container(
                     height: 40,
                     width: 80,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: mainTextColor)),
+                    decoration:
+                        BoxDecoration(border: Border.all(color: mainTextColor)),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

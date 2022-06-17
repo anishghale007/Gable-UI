@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 
-
 const mainTextColor = Color(0xFF4BCC5A);
 
 class JobContainer extends StatelessWidget {
-
   final String image;
   final String title;
   final String question;
@@ -15,8 +13,7 @@ class JobContainer extends StatelessWidget {
     required this.title,
     required this.question,
     required this.action,
-});
-
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -50,8 +47,7 @@ class JobContainer extends StatelessWidget {
                   Text(
                     '$question',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                   Text(
                     '$action ->',

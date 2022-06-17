@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 const mainTextColor = Color(0xFF4BCC5A);
 
 class ActionButton extends StatelessWidget {
-
   final String text;
 
-  ActionButton({
-    required this.text
-});
+  ActionButton({required this.text});
 
   @override
   Widget build(BuildContext context) {

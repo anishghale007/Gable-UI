@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 
-
 class ProfileContainer extends StatelessWidget {
-
-
   final String image;
   final String text;
 
   ProfileContainer({
     required this.image,
     required this.text,
-});
+  });
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Row(
         children: [

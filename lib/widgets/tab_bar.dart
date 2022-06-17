@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 const mainTextColor = Color(0xFF4BCC5A);
 
 class TabBarWidget extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -22,8 +21,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Home', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Home',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -39,8 +44,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('About', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'About',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -56,8 +67,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Jobs', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Jobs',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -73,8 +90,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Candidates', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Candidates',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -90,8 +113,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Pages', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Pages',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -107,8 +136,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Blogs', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Blogs',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -124,8 +159,14 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Contact', style: TextStyle(color: Colors.black, fontSize: 16),),
-                Icon(Icons.add, color: Colors.grey,)
+                Text(
+                  'Contact',
+                  style: TextStyle(color: Colors.black, fontSize: 16),
+                ),
+                Icon(
+                  Icons.add,
+                  color: Colors.grey,
+                )
               ],
             ),
           ),
@@ -144,9 +185,15 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.library_add, color: Colors.black,),
+                Icon(
+                  Icons.library_add,
+                  color: Colors.black,
+                ),
                 SizedBox(width: 10),
-                Text('Login', style: TextStyle(color: Colors.black),)
+                Text(
+                  'Login',
+                  style: TextStyle(color: Colors.black),
+                )
               ],
             ),
           ),
@@ -162,9 +209,15 @@ class TabBarWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.account_circle, color: Colors.white,),
+                Icon(
+                  Icons.account_circle,
+                  color: Colors.white,
+                ),
                 SizedBox(width: 10),
-                Text('Sign Up', style: TextStyle(color: Colors.white),),
+                Text(
+                  'Sign Up',
+                  style: TextStyle(color: Colors.white),
+                ),
               ],
             ),
           ),

@@ -46,16 +46,23 @@ class BlogContainer extends StatelessWidget {
                   child: CircleAvatar(
                     radius: 20,
                     backgroundColor: Colors.transparent,
-                    child: Image.network('https://templates.hibootstrap.com/gable/default/assets/img/home-1/blog/1.png'),
-                  ),),
-                WidgetSpan(child: SizedBox(width: 15),),
+                    child: Image.network(
+                        'https://templates.hibootstrap.com/gable/default/assets/img/home-1/blog/1.png'),
+                  ),
+                ),
+                WidgetSpan(
+                  child: SizedBox(width: 15),
+                ),
                 TextSpan(
                   text: 'Aikin Ward',
                   style: TextStyle(color: Colors.grey, fontSize: 15),
                 ),
-                WidgetSpan(child: SizedBox(width: 140),),
+                WidgetSpan(
+                  child: SizedBox(width: 140),
+                ),
                 TextSpan(
-                  text: 'Read More >', style: TextStyle(color: mainTextColor, fontSize: 15),
+                  text: 'Read More >',
+                  style: TextStyle(color: mainTextColor, fontSize: 15),
                 ),
               ],
             ),
