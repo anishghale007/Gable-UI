@@ -18,7 +18,7 @@ class BlogContainer extends StatelessWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.1),
+            color: Colors.grey.withOpacity(0.6),
             spreadRadius: 5,
             blurRadius: 7,
             offset: Offset(5, 1),
@@ -35,7 +35,7 @@ class BlogContainer extends StatelessWidget {
             child: Expanded(
               child: Text(
                 '$text',
-                style: TextStyle(fontFamily: 'Poppins', fontSize: 20),
+                style: TextStyle(fontFamily: 'Poppins', fontSize: 20, color: Colors.grey.shade800),
               ),
             ),
           ),

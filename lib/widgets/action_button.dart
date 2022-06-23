@@ -12,7 +12,7 @@ class ActionButton extends StatelessWidget {
     return Container(
       height: 50,
       width: double.infinity,
-      color: Colors.white,
+      color: Theme.of(context).scaffoldBackgroundColor,
       margin: EdgeInsets.symmetric(horizontal: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -44,7 +44,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
           items: imgList
               .map(
                 (item) => Container(
-                  color: Colors.white,
+                  color: Theme.of(context).scaffoldBackgroundColor,
                   width: double.infinity,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -56,7 +56,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
                             Text(
                               '${companyList[0]}',
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -86,7 +86,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
                             Text(
                               '${companyList[1]}',
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -116,7 +116,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
                             Text(
                               '${companyList[2]}',
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -146,7 +146,7 @@ class _CompanyCarouselState extends State<CompanyCarousel> {
                             Text(
                               '${companyList[3]}',
                               style: TextStyle(
-                                  color: Colors.black,
+                                  color: Theme.of(context).primaryColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold),
                             ),

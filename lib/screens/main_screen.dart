@@ -1,8 +1,7 @@
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gable_ui/widgets/action_button.dart';
 import 'package:gable_ui/widgets/action_container.dart';
@@ -17,17 +16,55 @@ import 'package:gable_ui/widgets/profile_container.dart';
 import 'package:gable_ui/widgets/tab_bar.dart';
 import 'package:gable_ui/widgets/vacancy_container.dart';
 import 'package:gable_ui/widgets/website_info.dart';
+import 'package:get/get.dart';
 
 const mainTextColor = Color(0xFF4BCC5A);
+
+enum Button { all, naya, featured, recent, fullTime, partTime }
 
 class MainScreen extends StatefulWidget {
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
+  Button selectedButton = Button.all;
+  bool _toTheTopButton = false;
+  late ScrollController _scrollController;
+  bool status = false;
+
+  @override
+  void initState() {
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          if (_scrollController.offset >= 400) {
+            _toTheTopButton = true; // show the back-to-top button
+          } else {
+            _toTheTopButton = false; // hide the back-to-top button
+          }
+        });
+      });
+
+
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollToTop() {
+    _scrollController.animateTo(0,
+        duration: const Duration(seconds: 3), curve: Curves.linear);
+  }
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       drawer: TabBarWidget(),
       appBar: AppBar(
@@ -35,8 +72,63 @@ class _MainScreenState extends State<MainScreen> {
         title: Center(
           child: Image.asset('assets/images/logo.png', height: 40),
         ),
+        actions: [
+          Row(
+            children: [
+              FlutterSwitch(
+                width: 70.0,
+                height: 40.0,
+                toggleSize: 45.0,
+                value: status,
+                borderRadius: 30.0,
+                padding: 2.0,
+                activeToggleColor: Color(0xFF6E40C9),
+                inactiveToggleColor: Color(0xFF2F363D),
+                activeSwitchBorder: Border.all(
+                  color: Color(0xFF3C1E70),
+                  width: 6.0,
+                ),
+                inactiveSwitchBorder: Border.all(
+                  color: Color(0xFFD1D5DA),
+                  width: 6.0,
+                ),
+                activeColor: Color(0xFF271052),
+                inactiveColor: Colors.white,
+                activeIcon: Icon(
+                  Icons.nightlight_round,
+                  color: Color(0xFFF8E3A1),
+                ),
+                inactiveIcon: Icon(
+                  Icons.wb_sunny,
+                  color: Color(0xFFFFDF5D),
+                ),
+                onToggle: (val) {
+                  setState(() {
+                    status = val;
+                    print(val);
+                    if (val == true) {
+                      Get.changeTheme(ThemeData(
+                        brightness: Brightness.dark,
+                        scaffoldBackgroundColor: Colors.black,
+                        backgroundColor: Colors.grey.shade900,
+                        primaryColor: Colors.white,
+
+                      ),);
+                    } else {
+                      Get.changeTheme(ThemeData(
+
+                      ));
+                    }
+                  });
+                },
+              ),
+              SizedBox(width: 10),
+            ],
+          ),
+        ],
       ),
       body: ListView(
+        controller: _scrollController,
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
@@ -102,7 +194,7 @@ class _MainScreenState extends State<MainScreen> {
                     width: MediaQuery.of(context).size.width,
                     height: 250,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Theme.of(context).scaffoldBackgroundColor,
                       border: Border.all(color: Colors.grey, width: 5),
                     ),
                     child: Column(
@@ -186,7 +278,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
           Container(
-            color: Colors.white,
+            color: status == true ? Colors.grey : Colors.white,
             height: 400,
             width: MediaQuery.of(context).size.width,
             child: Column(
@@ -207,7 +299,7 @@ class _MainScreenState extends State<MainScreen> {
           ),
           Container(
             width: double.infinity,
-            color: Color(0xFFF7FAF7),
+            color: status == true ? Theme.of(context).backgroundColor : Color(0xFFF7FAF7),
             height: 980,
             child: Column(
               children: [
@@ -217,7 +309,7 @@ class _MainScreenState extends State<MainScreen> {
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                    color: status == true ? Colors.white : Colors.black,
                     fontSize: 20,
                   ),
                 ),
@@ -251,13 +343,13 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             height: 1280,
             width: double.infinity,
-            color: Colors.white,
+            color: Theme.of(context).scaffoldBackgroundColor,
             child: Column(
               children: [
                 SizedBox(height: 35),
                 Text(
                   'Recent Jobs',
-                  style: TextStyle(fontFamily: 'Poppins', fontSize: 20),
+                  style: TextStyle(fontFamily: 'Poppins', fontSize: 20,),
                 ),
                 SizedBox(height: 10),
                 Padding(
@@ -266,10 +358,10 @@ class _MainScreenState extends State<MainScreen> {
                     width: double.infinity,
                     height: 130,
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: status == true ? Colors.grey.shade900 : Colors.white,
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
+                          color: Colors.grey.withOpacity(0.4),
                           spreadRadius: 5,
                           blurRadius: 7,
                           offset: Offset(5, 1),
@@ -283,48 +375,107 @@ class _MainScreenState extends State<MainScreen> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Container(
-                                height: 40,
-                                width: 65,
-                                color: mainTextColor,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'All',
-                                      style: TextStyle(color: Colors.white),
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    selectedButton = Button.all;
+                                  });
+                                },
+                                child: AnimatedContainer(
+                                  height: 40,
+                                  width: 65,
+                                  duration: Duration(milliseconds: 250),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: selectedButton == Button.all
+                                            ? Colors.transparent
+                                            : Colors.grey),
+                                    color: selectedButton == Button.all
+                                        ? mainTextColor
+                                        : Colors.white,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'All',
+                                        style: TextStyle(
+                                          color: selectedButton == Button.all
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                height: 40,
-                                width: 70,
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'New',
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    selectedButton = Button.naya;
+                                  });
+                                },
+                                child: AnimatedContainer(
+                                  height: 40,
+                                  width: 70,
+                                  duration: Duration(milliseconds: 250),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: selectedButton == Button.naya
+                                            ? Colors.transparent
+                                            : Colors.grey),
+                                    color: selectedButton == Button.naya
+                                        ? mainTextColor
+                                        : Colors.white,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'New',
+                                        style: TextStyle(
+                                          color: selectedButton == Button.naya
+                                              ? Colors.white
+                                              : Colors.black,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
-                              Container(
-                                height: 40,
-                                width: 95,
-                                decoration: BoxDecoration(
-                                    border: Border.all(color: Colors.grey)),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'Featured',
-                                      style: TextStyle(color: Colors.black),
-                                    )
-                                  ],
+                              InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    selectedButton = Button.featured;
+                                  });
+                                },
+                                child: AnimatedContainer(
+                                  height: 40,
+                                  width: 95,
+                                  duration: Duration(milliseconds: 250),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: selectedButton == Button.featured
+                                            ? Colors.transparent
+                                            : Colors.grey),
+                                    color: selectedButton == Button.featured
+                                        ? mainTextColor
+                                        : Colors.white,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Featured',
+                                        style: TextStyle(
+                                          color:
+                                              selectedButton == Button.featured
+                                                  ? Colors.white
+                                                  : Colors.black,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -334,49 +485,106 @@ class _MainScreenState extends State<MainScreen> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Container(
-                              height: 40,
-                              width: 90,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Recent',
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedButton = Button.recent;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                height: 40,
+                                width: 90,
+                                duration: Duration(milliseconds: 250),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: selectedButton == Button.recent
+                                          ? Colors.transparent
+                                          : Colors.grey),
+                                  color: selectedButton == Button.recent
+                                      ? mainTextColor
+                                      : Colors.white,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Recent',
+                                      style: TextStyle(
+                                        color: selectedButton == Button.recent
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              height: 40,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Full Time',
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedButton = Button.fullTime;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                height: 40,
+                                width: 100,
+                                duration: Duration(milliseconds: 250),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: selectedButton == Button.fullTime
+                                          ? Colors.transparent
+                                          : Colors.grey),
+                                  color: selectedButton == Button.fullTime
+                                      ? mainTextColor
+                                      : Colors.white,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Full Time',
+                                      style: TextStyle(
+                                        color: selectedButton == Button.fullTime
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
-                            Container(
-                              height: 40,
-                              width: 100,
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.grey)),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Part Time',
-                                    style: TextStyle(color: Colors.black),
-                                  )
-                                ],
+                            InkWell(
+                              onTap: () {
+                                setState(() {
+                                  selectedButton = Button.partTime;
+                                });
+                              },
+                              child: AnimatedContainer(
+                                height: 40,
+                                width: 100,
+                                duration: Duration(milliseconds: 250),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      color: selectedButton == Button.partTime
+                                          ? Colors.transparent
+                                          : Colors.grey),
+                                  color: selectedButton == Button.partTime
+                                      ? mainTextColor
+                                      : Colors.white,
+                                ),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'Part Time',
+                                      style: TextStyle(
+                                        color: selectedButton == Button.partTime
+                                            ? Colors.white
+                                            : Colors.black,
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -492,7 +700,7 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             height: 650,
             width: MediaQuery.of(context).size.width,
-            color: mainTextColor,
+            color: status == true ? Colors.grey.shade900 : mainTextColor,
             child: Column(
               children: [
                 Column(
@@ -535,6 +743,7 @@ class _MainScreenState extends State<MainScreen> {
           SizedBox(height: 50),
           Container(
             height: 1480,
+            color: Theme.of(context).scaffoldBackgroundColor,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -586,7 +795,7 @@ class _MainScreenState extends State<MainScreen> {
                         child: Text(
                           'Trusted & Popular Job Portal',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: status == true ? Colors.white : Colors.black,
                               fontFamily: 'Poppins',
                               fontSize: 20),
                         ),
@@ -603,7 +812,7 @@ class _MainScreenState extends State<MainScreen> {
                           'Quis ipsum suspendisse ultrices gravida. Risus '
                           ' commodo viverra maecenas accumsan lacus vel '
                           ' facilisis. Lorem ipsum dolor sit amet, consectetur.',
-                          style: TextStyle(color: Colors.black, fontSize: 15),
+                          style: TextStyle(color: status == true ? Colors.white : Colors.black, fontSize: 15),
                         ),
                       ),
                     ],
@@ -631,7 +840,7 @@ class _MainScreenState extends State<MainScreen> {
           Container(
             height: 390,
             width: double.infinity,
-            color: Color(0xFFEBEBEB),
+            color: status == true ? Colors.grey.shade900 : Color(0xFFEBEBEB),
             child: Column(
               children: [
                 SizedBox(height: 30),
@@ -748,7 +957,7 @@ class _MainScreenState extends State<MainScreen> {
                   height: 160,
                   margin: EdgeInsets.symmetric(horizontal: 15),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: status == true ? Colors.grey.shade900 : Colors.white,
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.1),
@@ -763,7 +972,7 @@ class _MainScreenState extends State<MainScreen> {
                       SizedBox(height: 20),
                       Text(
                         'Subscribe Newsletter',
-                        style: TextStyle(fontFamily: 'Poppins', fontSize: 20),
+                        style: TextStyle(fontFamily: 'Poppins', fontSize: 20,),
                       ),
                       SizedBox(height: 20),
                       Row(
@@ -773,7 +982,7 @@ class _MainScreenState extends State<MainScreen> {
                             height: 50,
                             width: 230,
                             decoration: BoxDecoration(
-                              color: Colors.white,
+                              color: Theme.of(context).scaffoldBackgroundColor,
                               border: Border.all(
                                 color: mainTextColor,
                                 width: 0.5,
@@ -783,7 +992,7 @@ class _MainScreenState extends State<MainScreen> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 10),
                               child: Row(
-                                children: [Text('Enter Your Email')],
+                                children: [Text('Enter Your Email', style: TextStyle(color: Colors.grey.shade800),),],
                               ),
                             ),
                           ),
@@ -961,6 +1170,17 @@ class _MainScreenState extends State<MainScreen> {
           ),
         ],
       ),
+      floatingActionButton: _toTheTopButton == false
+          ? null
+          : FloatingActionButton(
+              onPressed: _scrollToTop,
+              backgroundColor: Colors.grey.shade800,
+              child: Icon(
+                Icons.keyboard_arrow_up_outlined,
+                size: 50,
+                color: Colors.white,
+              ),
+            ),
     );
   }
 }

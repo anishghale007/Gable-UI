@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 
 const mainTextColor = Color(0xFF4BCC5A);
 
-class TabBarWidget extends StatelessWidget {
+class TabBarWidget extends StatefulWidget {
+  @override
+  State<TabBarWidget> createState() => _TabBarWidgetState();
+}
+
+class _TabBarWidgetState extends State<TabBarWidget> {
+
+  Color homeColor = Colors.black;
+  Color jobColor = Colors.black;
+  Color candidateColor = Colors.black;
+  Color blogColor = Colors.black;
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -14,161 +25,126 @@ class TabBarWidget extends StatelessWidget {
             color: Colors.black,
             child: Image.asset('assets/images/logo.png'),
           ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Home',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
+          ExpansionTile(
+              title: Text(
+                'Home',
+                style: TextStyle(color: homeColor, fontSize: 16),
+              ),
+            onExpansionChanged: (expanded) {
+                setState(() {
+                  if (expanded) {
+                    homeColor = mainTextColor;
+                  } else {
+                    homeColor = Colors.black;
+                  }
+                });
+            },
+            iconColor: mainTextColor,
+            childrenPadding: EdgeInsets.symmetric(horizontal: 15),
+            children: [
+              ListTile(
+                title: Text('Home Page 1', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Home Page 2', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Home Page 3', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+            ],
+          ),
+          ListTile(
+            title: Text('About', style: TextStyle(color: Colors.black, fontSize: 16),),
+          ),
+          ExpansionTile(
+              title: Text(
+                'Jobs',
+                style: TextStyle(color: jobColor, fontSize: 16),
+              ),
+            childrenPadding: EdgeInsets.symmetric(horizontal: 15),
+            onExpansionChanged: (expanded) {
+              setState(() {
+                if (expanded) {
+                  jobColor = mainTextColor;
+                } else {
+                  jobColor = Colors.black;
+                }
+              });
+            },
+            iconColor: mainTextColor,
+            children: [
+              ListTile(
+                title: Text('Job List', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Favourite Jobs', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Job Details', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Post A Job', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+            ],
+          ),
+          ExpansionTile(
+            title: Text(
+              'Candidates',
+              style: TextStyle(color: candidateColor, fontSize: 16),
             ),
+            childrenPadding: EdgeInsets.symmetric(horizontal: 15),
+            onExpansionChanged: (expanded) {
+              setState(() {
+                if (expanded) {
+                  candidateColor = mainTextColor;
+                } else {
+                  candidateColor = Colors.black;
+                }
+              });
+            },
+            iconColor: mainTextColor,
+            children: [
+              ListTile(
+                title: Text('Candidates List', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Candidates Details', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Single Resume', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Submit Resume', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+            ],
           ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'About',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
+          ExpansionTile(
+            title: Text(
+              'Blogs',
+              style: TextStyle(color: blogColor, fontSize: 16),
             ),
+            childrenPadding: EdgeInsets.symmetric(horizontal: 15),
+            onExpansionChanged: (expanded) {
+              setState(() {
+                if (expanded) {
+                  blogColor = mainTextColor;
+                } else {
+                  blogColor = Colors.black;
+                }
+              });
+            },
+            iconColor: mainTextColor,
+            children: [
+              ListTile(
+                title: Text('Blog', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+              ListTile(
+                title: Text('Blog Details', style: TextStyle(color: Colors.black, fontSize: 16),),
+              ),
+            ],
           ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Jobs',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Candidates',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Pages',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Blogs',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
-            ),
-          ),
-          Container(
-            width: double.infinity,
-            height: 0.5,
-            color: mainTextColor,
-          ),
-          Container(
-            width: double.infinity,
-            height: 50,
-            margin: EdgeInsets.symmetric(horizontal: 13),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Contact',
-                  style: TextStyle(color: Colors.black, fontSize: 16),
-                ),
-                Icon(
-                  Icons.add,
-                  color: Colors.grey,
-                )
-              ],
-            ),
+          ListTile(
+            title: Text('Contact', style: TextStyle(color: Colors.black, fontSize: 16),),
           ),
           SizedBox(height: 50),
           Container(

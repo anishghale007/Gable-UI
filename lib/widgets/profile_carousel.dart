@@ -50,8 +50,8 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
             items: imgList
                 .map(
                   (item) => Container(
-                    color: Colors.white,
                     width: double.infinity,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                     child: Column(
                       children: [
                         Container(
@@ -72,7 +72,7 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                     Text(
                                       '${nameList[0]}',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.grey.shade800,
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -101,7 +101,7 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                     Text(
                                       '${nameList[1]}',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.grey.shade800,
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -130,7 +130,7 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                     Text(
                                       '${nameList[2]}',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.grey.shade800,
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -159,7 +159,7 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                     Text(
                                       '${nameList[3]}',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.grey.shade800,
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -188,7 +188,7 @@ class _ProfileCarouselState extends State<ProfileCarousel> {
                                     Text(
                                       '${nameList[4]}',
                                       style: TextStyle(
-                                          color: Colors.black,
+                                          color: Colors.grey.shade800,
                                           fontSize: 17,
                                           fontWeight: FontWeight.bold),
                                     ),

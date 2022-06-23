@@ -21,7 +21,7 @@ class CategoryContainer extends StatelessWidget {
         width: double.infinity,
         height: 180,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).scaffoldBackgroundColor,
           boxShadow: [
             BoxShadow(
               color: Colors.grey.withOpacity(0.1),
