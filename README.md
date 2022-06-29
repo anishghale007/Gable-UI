@@ -13,11 +13,11 @@ NOTE: Landscape mode is not avaialble. Only POTRAIT mode is allowed.
 
 ## Screenshots (Light Mode)
 
-<img src="https://user-images.githubusercontent.com/72159017/176441959-ccf4c439-8798-4226-b5d2-c237b5d355ef.jpg" width="400" height="600">
+<img src="https://user-images.githubusercontent.com/72159017/176441959-ccf4c439-8798-4226-b5d2-c237b5d355ef.jpg" width="200" height="600">
 
-<img src="https://user-images.githubusercontent.com/72159017/176442078-f045b72e-365c-4cc6-9408-bb9a961a9a7a.jpg" width="400" height="600">
+<img src="https://user-images.githubusercontent.com/72159017/176442078-f045b72e-365c-4cc6-9408-bb9a961a9a7a.jpg" width="200" height="600">
 
-<img src="https://user-images.githubusercontent.com/72159017/176442171-e17a091d-3759-497a-8c40-d47b365ae6f5.jpg" width="400" height="600">
+<img src="https://user-images.githubusercontent.com/72159017/176442171-e17a091d-3759-497a-8c40-d47b365ae6f5.jpg" width="200" height="600">
 
 <img src="https://user-images.githubusercontent.com/72159017/176442304-44606339-3975-44ab-a3b1-9b1cfcf015d6.jpg" width="400" height="600">
 
