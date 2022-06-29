@@ -4,15 +4,14 @@ A UI clone of Gable (Job Portal HTML template). Link of the template: https://te
 
 NOTE: Landscape mode is not avaialble. Only POTRAIT mode is allowed. 
 
-## Screenshots
+## Packages Used
 
-Packages used:
 - Get
 - flutter_switch
 - carousel_slider
 - font_awesome_slider
 
-### Screenshots (Light Mode)
+## Screenshots (Light Mode)
 
 <img src="https://user-images.githubusercontent.com/72159017/176441959-ccf4c439-8798-4226-b5d2-c237b5d355ef.jpg" width="400" height="800">
 
@@ -24,7 +23,7 @@ Packages used:
 
 <img src="https://user-images.githubusercontent.com/72159017/176442422-8028b49e-de48-417e-a763-70b7f2ece653.jpg" width="400" height="800">
 
-#### Screenshots (Dark Mode)
+## Screenshots (Dark Mode)
 
 <img src="https://user-images.githubusercontent.com/72159017/176442541-7739e59a-b46b-44e8-ba74-ccec6245f9d7.jpg" width="400" height="800">
 
