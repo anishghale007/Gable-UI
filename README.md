@@ -1,7 +1,6 @@
 # gable_ui
 
 A UI clone of Gable (Job Portal HTML template). Link of the template: https://templates.hibootstrap.com/gable/default/index-2.html
-Dark theme and Light theme option avaialble. 
 
 NOTE: Landscape mode is not avaialble. Only POTRAIT mode is allowed. 
 
